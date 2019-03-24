@@ -5,6 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">     
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">           
+    	<style>
+    		.headers{
+    			font-family: 'Verdana';
+    			margin: 0;
+    		}
+    		.accent-color{
+    			color: #FF6A00;
+    		}
+    	</style>
     </head>
 
     <body>
@@ -12,7 +21,12 @@
             <br />
             <div class="container">
                 <p>Nothing will appear in this example. Please view the code</p> 
-                <h2>{{ appName }}</h2>
+                <h2 v-text="appName"
+                	v-bind:class="{
+	                	'headers' : true,
+	                	'accent-color' : isOnline
+	                }">
+                </h2>
                 <h2 v-html="appLink"></h2>                 
             </div>
         </div>
@@ -25,7 +39,8 @@
                 el: '#growler',
                 data: {
                 	appLink: '<a href="/">Growler Link</a>',
-                	appName: 'Growler'
+                	appName: 'Growler',
+                	isOnline: false
                 }
             });        
         </script>
